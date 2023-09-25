@@ -4,52 +4,57 @@ import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 const Sign = () => {
 
-    const[email,setEmail] = useState("");
-    const[password,setPassword] = useState("");
+    const[registeremail,setRegisterEmail] = useState("");
+    const[registerpassword,setRegisterPassword] = useState("");
+    const[loginemail,setLoginEmail] = useState("");
+    const[loginpassword,setLoginPassword] = useState("");
 
-const signin = (e) =>{
-    e.preventDefault();
-    signInWithEmailAndPassword(auth,email,password)
-    .then((userCredential)=>{
-        console.log(userCredential);
-    }).catch((error)=>{
-        console.log(error);
-    })
-}  
+// const signin = (e) =>{
+//     e.preventDefault();
+//     signInWithEmailAndPassword(auth,email,password)
+//     .then((userCredential)=>{
+//         console.log(userCredential);
+//     }).catch((error)=>{
+//         console.log(error);
+//     })
+// }  
 
-const signup = (e) =>{
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth,email,password)
-    .then((userCredential)=>{
-        console.log(userCredential);
-    }).catch((error)=>{
-        console.log(error);
-    })
-}  
+const signup = async () =>{
+  try{
+   const user=await createUserWithEmailAndPassword(auth , registeremail , registerpassword);
+   console.log(user);
+  } catch(error){
+    console.log(error.message);
+  }
+};  
 
   return (
-    <form className="Container">
+    <div className="Container">
     <div className="SignUpContainer">
-      <form id="Form" onSubmit={signup}>
+      <form id="Form" >
         <h1 className="Title">Create Account</h1>
         <input type="text" placeholder="Name" className="Input" />
-        <input type="email" placeholder="Email" className="Input" value={email}
-        onChange={(e)=>setEmail(e.target.value)}
+        <input type="email" placeholder="Email" className="Input" value={registeremail}
+        onChange={(e)=>{setRegisterEmail(e.target.value);
+        }}
          />
-        <input type="password" placeholder="Password" className="Input" value={password}
-        onChange={(e)=>setPassword(e.target.value)}
+        <input type="password" placeholder="Password" className="Input" value={registerpassword}
+        onChange={(e)=>{setRegisterPassword(e.target.value);
+        }}
          />
-        <button className="Button">Sign Up</button>
+        <button className="Button" onClick={signup}>Sign Up</button>
       </form>
     </div>
     <div className="SignInContainer">
-      <form id="Form1" onSubmit={signin}>
+      <form id="Form1" >
         <h1 className="Title">Sign in</h1>
-        <input type="email" placeholder="Email" className="Input" value={email}
-        onChange={(e)=>setEmail(e.target.value)}
+        <input type="email" placeholder="Email" className="Input" value={loginemail}
+        onChange={(e)=>{setLoginEmail(e.target.value);
+        }}
         />
-        <input type="password" placeholder="Password" className="Input" value={password}
-        onChange={(e)=>setPassword(e.target.value)}
+        <input type="password" placeholder="Password" className="Input" value={loginpassword}
+        onChange={(e)=>{setLoginPassword(e.target.value);
+        }}
         />
         <a href="/#" className="Anchor">Forgot your password?</a>
         <button className="Button">Sign In</button>
@@ -73,7 +78,7 @@ const signup = (e) =>{
         </div>
       </div>
     </div>
-  </form>
+  </div>
   
   )
 }
