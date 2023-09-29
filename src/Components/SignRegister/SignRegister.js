@@ -31,7 +31,7 @@ const SignRegister = () => {
                 To keep connected with us please login with your personal info
               </Components.Paragraph>
               <Components.GhostButton onClick={() => toggle(true)}>
-                Sign In
+                Signnnnnnnn In
               </Components.GhostButton>
             </Components.LeftOverlayPanel>
             <Components.RightOverlayPanel signingIn={signIn}>
@@ -40,7 +40,7 @@ const SignRegister = () => {
                 Enter your personal details and start journey with us
               </Components.Paragraph>
               <Components.GhostButton onClick={() => toggle(false)}>
-                Sign Up
+                Signnnnnnnnnnnnnn Up
               </Components.GhostButton>
             </Components.RightOverlayPanel>
           </Components.Overlay>

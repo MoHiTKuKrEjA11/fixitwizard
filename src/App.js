@@ -9,9 +9,9 @@ function App() {
 
     <div className="App">
       {/* <SignRegister/> */}
-      {/* <Home/> */}
+      <Home/>
       {/* <Forms/> */}
-      <Sign/>
+      {/* <Sign/> */}
       {/* <AuthDeatils/> */}
     </div>
 
