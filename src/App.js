@@ -3,6 +3,7 @@ import Home from './Components/Home/Home';
 import SignRegister from './Components/SignRegister/SignRegister'
 import Forms from './Components/Forms/Forms'
 import Sign from './Components/Sign/Sign';
+import AuthDeatils from './Components/Sign/AuthDeatils';
 function App() {
   return (
 
@@ -11,6 +12,7 @@ function App() {
       {/* <Home/> */}
       {/* <Forms/> */}
       <Sign/>
+      {/* <AuthDeatils/> */}
     </div>
 
       );

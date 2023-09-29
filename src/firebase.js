@@ -6,6 +6,8 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+// console.log(import.meta.env.API_KEY)
 const firebaseConfig = {
   apiKey: "AIzaSyBPJ1YmtquXajJyMjlp0uMPNpIwDPZt2W8",
   authDomain: "fixitwizards.firebaseapp.com",

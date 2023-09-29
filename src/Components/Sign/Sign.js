@@ -1,25 +1,35 @@
 import React, { useState} from 'react'
-// import './Sign.css'
+import './Sign.css'
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 const Sign = () => {
 
+    const [isSigningIn, setIsSigningIn] = useState(1);
     const[registeremail,setRegisterEmail] = useState("");
     const[registerpassword,setRegisterPassword] = useState("");
     const[loginemail,setLoginEmail] = useState("");
     const[loginpassword,setLoginPassword] = useState("");
 
-// const signin = (e) =>{
-//     e.preventDefault();
-//     signInWithEmailAndPassword(auth,email,password)
-//     .then((userCredential)=>{
-//         console.log(userCredential);
-//     }).catch((error)=>{
-//         console.log(error);
-//     })
-// }  
+    // const sign=()=>{
+    //   setIsSigningIn(true);
+    // }
+
+    // const out=()=>{
+    //   setIsSigningIn(false);
+    // }
+
+    const signin = async () =>{
+     
+      try{
+       const user=await signInWithEmailAndPassword(auth , loginemail , loginpassword);
+       console.log(user);
+      } catch(error){
+        console.log(error.message);
+      }
+    };  
 
 const signup = async () =>{
+ 
   try{
    const user=await createUserWithEmailAndPassword(auth , registeremail , registerpassword);
    console.log(user);
@@ -30,8 +40,8 @@ const signup = async () =>{
 
   return (
     <div className="Container">
-    <div className="SignUpContainer">
-      <form id="Form" >
+   <div className="SignUpContainer" style={isSigningIn!==1?{ transform:"translateX(100%)",opacity:"1",zIndex:"5"}:null}>
+      <div className="Form1" >
         <h1 className="Title">Create Account</h1>
         <input type="text" placeholder="Name" className="Input" />
         <input type="email" placeholder="Email" className="Input" value={registeremail}
@@ -43,10 +53,10 @@ const signup = async () =>{
         }}
          />
         <button className="Button" onClick={signup}>Sign Up</button>
-      </form>
+      </div>
     </div>
-    <div className="SignInContainer">
-      <form id="Form1" >
+    <div className="SignInContainer" style={isSigningIn!==1?{transform:"translateX(100%)"}:null}>
+      <div className="Form2" >
         <h1 className="Title">Sign in</h1>
         <input type="email" placeholder="Email" className="Input" value={loginemail}
         onChange={(e)=>{setLoginEmail(e.target.value);
@@ -57,24 +67,24 @@ const signup = async () =>{
         }}
         />
         <a href="/#" className="Anchor">Forgot your password?</a>
-        <button className="Button">Sign In</button>
-      </form>
+        <button className="Button" onClick={signin}>Sign In</button>
+      </div>
     </div>
-    <div className="OverlayContainer">
-      <div className="Overlay">
-        <div className="LeftOverlayPanel">
+    <div className="OverlayContainer" style={isSigningIn!==1?{transform:"translateX(-100%)"}:null}>
+    <div className="Overlay" style={isSigningIn!==1?{transform:"translateX(50%)"}:null}>
+    <div className="LeftOverlayPanel" style={isSigningIn!==1?{transform:"translateX(0)"}:null}>
           <h1 className="Title">Welcome Back!</h1>
           <p className="Paragraph">
             To keep connected with us please login with your personal info
           </p>
-          <button className="GhostButton">Sign In</button>
+          <button className="GhostButton" onClick={()=>{setIsSigningIn(1)}}>Signnnnnn In</button>
         </div>
-        <div className="RightOverlayPanel">
+        <div className="RightOverlayPanel" style={isSigningIn!==1?{transform:"translateX(20%)"}:null}>
           <h1 className="Title">Hello, Friend!</h1>
           <p className="Paragraph">
             Enter your personal details and start the journey with us
           </p>
-          <button className="GhostButton">Sign Up</button>
+          <button className="GhostButton" onClick={()=>{setIsSigningIn(0)}}>Signnnnnn Up</button>
         </div>
       </div>
     </div>
