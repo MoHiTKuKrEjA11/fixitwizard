@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Sign.css'
 import { auth } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 const Sign = () => {
 
@@ -9,6 +10,7 @@ const Sign = () => {
   const [registerpassword, setRegisterPassword] = useState("");
   const [loginemail, setLoginEmail] = useState("");
   const [loginpassword, setLoginPassword] = useState("");
+  // const navigate = useNavigate();
 
   // const sign=()=>{
   //   setIsSigningIn(true);
@@ -22,6 +24,7 @@ const Sign = () => {
 
     try {
       const user = await signInWithEmailAndPassword(auth, loginemail, loginpassword);
+      
       console.log(user);
     } catch (error) {
       console.log(error.message);
@@ -40,7 +43,7 @@ const Sign = () => {
 
   return (
     <div className="Container">
-      <div className="SignUpContainer" style={isSigningIn !== 1 ? { transform: "translateX(100%)", opacity: "1", zIndex: "5" } : null}>
+      <div className="SignUpContainer" style={isSigningIn !== 1 ? { transform: "translateX(100%)", opacity: "100", zIndex: "5"} : null}>
         <div className="Form1" >
           <h1 className="Title">Create Account</h1>
           <input type="text" placeholder="Name" className="Input" />

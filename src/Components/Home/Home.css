@@ -4,22 +4,8 @@
   box-sizing: border-box;
 }
 
-:root {
-    --bg: #9a0fe0;
-    --colone: #ff8a00;
-    --coltwo: #c8305f;
-  }
-  
-  /* Create the gradient background */
-  :root {
-    --gradient: linear-gradient(
-      90deg, 
-      var(--colone), 
-      var(--coltwo)
-    );
-  }
-  home {
-    /* position: relative; */
+.home {
+    position: relative;
     margin: 0;
     overflow: hidden;
     /* display: flex; */
@@ -28,7 +14,6 @@
     letter-spacing: 2px;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    background-color: purple;
   }
   
   /* Header styles */
@@ -41,6 +26,7 @@
     flex-direction: column;
     text-transform: uppercase;
     max-width: 50vw;
+    min-height: 20vh;
     text-align: center;
     font-size: 2.5vw;  
     font-weight: 900;
@@ -121,4 +107,11 @@
   .ch{
     display: inline;
     position: absolute;
+  }
+  .homefooter{
+    font-size: larger;
+    position: relative;
+    bottom: -55%;
+    height: 200vh;
+    border-top: 4px solid black;
   }
