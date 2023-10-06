@@ -10,9 +10,6 @@ function Home() {
         <span>NO WORRY WE HAVE A SOLUTION</span>
         <span>Fix It Wizards...</span>
       </h1>
-      <footer className='homefooter'>
-        hii
-      </footer>
     </div>
   )
 }
