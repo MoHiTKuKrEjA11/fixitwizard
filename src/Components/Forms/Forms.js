@@ -1,5 +1,7 @@
 import React,{ useState} from 'react'
 import './Forms.css'
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 function Forms() {
   const[userData,setUserData]=useState(
     {
@@ -45,6 +47,8 @@ if(res)
 };
 
   return (
+    <>
+    <Navbar />
     <div className='forms'>
     <h1 className='formsh1'>Please Enter your Details</h1>
     <div action="" className='formsdiv' method='POST'>
@@ -57,6 +61,8 @@ if(res)
     </div>
     <button className='formsbutton' onClick={submit}>Submit</button>
     </div>
+    <Footer />  
+    </>
   )
 }
 

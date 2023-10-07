@@ -1,7 +1,10 @@
 import React from 'react'
 import './Home.css'
+import Navbar from '../Navbar/Navbar'
 function Home() {
   return (
+    <>
+    <Navbar />
     <div className='home'>
       <h1 className='homeh1'>
         <span>Have an Error ??</span>
@@ -10,10 +13,8 @@ function Home() {
         <span>NO WORRY WE HAVE A SOLUTION</span>
         <span>Fix It Wizards...</span>
       </h1>
-      <footer className='homefooter'>
-        hii
-      </footer>
     </div>
+    </>
   )
 }
 
