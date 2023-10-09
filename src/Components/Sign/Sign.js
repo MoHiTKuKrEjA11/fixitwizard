@@ -4,6 +4,7 @@ import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 const Sign = () => {
 
   const [isSigningIn, setIsSigningIn] = useState(1);
@@ -102,6 +103,7 @@ const Sign = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
