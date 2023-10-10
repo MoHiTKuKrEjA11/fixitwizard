@@ -52,11 +52,11 @@ if(res)
     <div className='forms'>
     <h1 className='formsh1'>Please Enter your Details</h1>
     <div action="" className='formsdiv' method='POST'>
-        <label for="fname" className='formslabel'>Name :</label>
+        <label htmlFor="fname" className='formslabel'>Name :</label>
         <input className='formsinput' type="text" id="fname" name="name" placeholder="Enter your Name" value={userData.name} onChange={postUserData}/>
-        <label for="num" className='formslabel'>Phone No.</label>
+        <label htmlFor="num" className='formslabel'>Phone No.</label>
         <input className='formsinput' type="number" id="num" name="phoneNo" placeholder="Enter Your phone number" value={userData.phoneNo} onChange={postUserData} />
-        <label for="tech" className='formslabel'>Technologies Known</label>
+        <label htmlFor="tech" className='formslabel'>Technologies Known</label>
         <input className='formsinput' type="text" id="tech" placeholder="Please Enter technologies you known" name="technologiesKnown" value={userData.technologiesKnown} onChange={postUserData} />
     </div>
     <button className='formsbutton' onClick={submit}>Submit</button>

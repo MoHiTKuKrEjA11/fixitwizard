@@ -14,13 +14,11 @@ function App() {
         <Router>
           <Routes>
             <Route exact path="/" element={<Home/>} />
-            <Route exact path="/forms" element={<Forms/>} />
+            {/* <Route exact path="/forms" element={<Forms/>} /> */}
             <Route exact path="/sign" element={<Sign/>} />
             <Route exact path="/home" element={<Home/>} />
             <Route exact path="/forms" element={<Forms/>} />
             <Route exact path="/home" element={<Home/>} />
-            <Route exact path="/forms" element={<Forms/>} />
-            <Route exact path="/forms" element={<Forms/>} />
           </Routes>
         </Router>
           {/* <Home/> */}
@@ -29,7 +27,7 @@ function App() {
       {/* <Navbar/> */}
       {/* <Forms/> */}
       {/* <Sign/> */}
-      {/* <AuthDeatils/> */}
+      <AuthDeatils/>
     </div>
 
       );
