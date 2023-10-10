@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+
 const Sign = () => {
 
   const [isSigningIn, setIsSigningIn] = useState(1);
@@ -12,6 +13,7 @@ const Sign = () => {
   const [registerpassword, setRegisterPassword] = useState("");
   const [loginemail, setLoginEmail] = useState("");
   const [loginpassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
   // const navigate = useNavigate();
 
   // const sign=()=>{
@@ -31,16 +33,19 @@ const Sign = () => {
     } catch (error) {
       console.log(error.message);
     }
+    
   };
 
   const signup = async () => {
 
     try {
       const user = await createUserWithEmailAndPassword(auth, registeremail, registerpassword);
+      navigate('/forms');
       console.log(user);
     } catch (error) {
       console.log(error.message);
     }
+
   };
 
   return (
@@ -61,7 +66,9 @@ const Sign = () => {
                 setRegisterPassword(e.target.value);
               }}
             />
+            <div>
             <button className="Button" onClick={signup}>Sign Up</button>
+            </div>
           </div>
         </div>
         <div className="SignInContainer" style={isSigningIn === 1 ? { transform: "translateX(0)" } : null}>

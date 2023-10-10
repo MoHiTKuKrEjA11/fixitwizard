@@ -30,6 +30,7 @@ const AuthDeatils = () => {
   return (
     <div>
      { authUser ? <><p>{`sign in hogaya as ${authUser.email}`}</p> <button onClick={signout}>Sign Out</button> </> : <p>Sign out kar lo</p> }
+     console.log(authUser.email)
     </div>
   )
 }
